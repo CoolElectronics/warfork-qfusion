@@ -988,6 +988,7 @@ void CL_Disconnect( const char *message )
 	CL_ClearState();
 	CL_SetClientState( CA_DISCONNECTED );
 
+
 	if( cls.download.requestname )
 	{
 		cls.download.pending_reconnect = false;

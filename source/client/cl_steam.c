@@ -104,5 +104,12 @@ void Steam_RequestAvatar(uint64_t steamid, int size)
 */
 void Steam_AdvertiseGame( const uint8_t *ip, unsigned short port )
 {
-	// UNIMPLEMENTED_DBGBREAK();
+	char* keys[1] = {"connect"};
+	char* values[1];
+	if (port) {
+		values[0] = va("+connect %d.%d.%d.%d:%i",ip[0],ip[1],ip[2],ip[3],port);
+	} else {
+		values[0] = "";
+	}
+	Steam_SetRichPresence(1, keys, values);
 }
